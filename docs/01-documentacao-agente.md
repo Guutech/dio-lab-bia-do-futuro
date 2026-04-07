@@ -1,81 +1,94 @@
-# Documentação do Agente
-
-## Caso de Uso
-
-### Problema
-> Qual problema financeiro seu agente resolve?
-
-[Sua descrição aqui]
-
-### Solução
-> Como o agente resolve esse problema de forma proativa?
-
-[Sua descrição aqui]
-
-### Público-Alvo
-> Quem vai usar esse agente?
-
-[Sua descrição aqui]
+![Logo do Projeto](/assets/Logo.png)
+### Seu tradutor financeiro inteligente
 
 ---
 
-## Persona e Tom de Voz
+## 🚨 O problema
 
-### Nome do Agente
-[Nome escolhido]
+Você já teve a sensação de olhar seu extrato bancário e pensar:
 
-### Personalidade
-> Como o agente se comporta? (ex: consultivo, direto, educativo)
+> “Eu não faço ideia de pra onde meu dinheiro foi.”
 
-[Sua descrição aqui]
+A verdade é simples:  
+as pessoas **têm acesso aos dados**, mas não conseguem **entender o que eles significam**.
 
-### Tom de Comunicação
-> Formal, informal, técnico, acessível?
-
-[Sua descrição aqui]
-
-### Exemplos de Linguagem
-- Saudação: [ex: "Olá! Como posso ajudar com suas finanças hoje?"]
-- Confirmação: [ex: "Entendi! Deixa eu verificar isso para você."]
-- Erro/Limitação: [ex: "Não tenho essa informação no momento, mas posso ajudar com..."]
+Isso gera:
+- Gastos descontrolados  
+- Falta de clareza financeira  
+- Decisões mal informadas  
 
 ---
 
-## Arquitetura
+## 💡 A solução
 
-### Diagrama
+O **Grana.ai** foi criado para resolver exatamente isso.
+
+Ele funciona como um **tradutor financeiro**, transformando dados brutos em:
+
+- 📊 Explicações claras  
+- 🔍 Insights inteligentes  
+- 🎯 Sugestões práticas  
+
+Em vez de números confusos, você recebe respostas como:
+
+> “Você está gastando mais com delivery do que o normal este mês.”
+
+---
+
+## 👤 Para quem é?
+
+O Grana.ai foi pensado para:
+
+- Pessoas que querem entender melhor seus gastos  
+- Quem está começando a organizar a vida financeira  
+- Usuários que não têm conhecimento técnico em finanças  
+
+---
+
+## 🧠 Como ele se comporta?
+
+O Grana.ai não é só um chatbot.
+
+Ele é um:
+
+- 🤝 Assistente consultivo  
+- 📘 Educador financeiro  
+- 📈 Analista de comportamento  
+
+Sempre:
+- Sem julgamentos  
+- Com base em dados reais  
+- Focado em clareza  
+
+---
+
+## 🗣️ Como ele fala?
+
+- Simples  
+- Direto  
+- Humano  
+
+### Exemplos:
+
+**Saudação**  
+> “Oi! Vamos entender melhor seus gastos?”
+
+**Análise**  
+> “Notei que seus gastos com transporte aumentaram este mês.”
+
+**Limitação**  
+> “Não encontrei essa informação nos seus dados atuais.”
+
+---
+
+## ⚙️ Como funciona?
 
 ```mermaid
 flowchart TD
-    A[Cliente] -->|Mensagem| B[Interface]
-    B --> C[LLM]
-    C --> D[Base de Conhecimento]
+    A[Usuário] -->|Pergunta| B[Interface - Chat]
+    B --> C[Processamento]
+    C --> D[Base de Dados]
     D --> C
-    C --> E[Validação]
-    E --> F[Resposta]
-```
-
-### Componentes
-
-| Componente | Descrição |
-|------------|-----------|
-| Interface | [ex: Chatbot em Streamlit] |
-| LLM | [ex: GPT-4 via API] |
-| Base de Conhecimento | [ex: JSON/CSV com dados do cliente] |
-| Validação | [ex: Checagem de alucinações] |
-
----
-
-## Segurança e Anti-Alucinação
-
-### Estratégias Adotadas
-
-- [ ] [ex: Agente só responde com base nos dados fornecidos]
-- [ ] [ex: Respostas incluem fonte da informação]
-- [ ] [ex: Quando não sabe, admite e redireciona]
-- [ ] [ex: Não faz recomendações de investimento sem perfil do cliente]
-
-### Limitações Declaradas
-> O que o agente NÃO faz?
-
-[Liste aqui as limitações explícitas do agente]
+    C --> E[LLM]
+    E --> F[Validação]
+    F --> G[Resposta clara e útil]
