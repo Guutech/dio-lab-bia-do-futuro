@@ -1,24 +1,88 @@
-# Documentação do Agente: Grana.ai
+# 📄 Documentação do Agente — Grana.ai
 
-## 1. Visão Geral
-O **Grana.ai** é um "tradutor financeiro" projetado para converter dados bancários brutos e complexos em linguagem acessível, insights comportamentais e sugestões práticas.
+## Caso de Uso
 
-## 2. Caso de Uso
-O agente resolve a dificuldade de compreensão de extratos e a falta de organização financeira para usuários leigos. 
-- **Problema:** Usuários que se sentem sobrecarregados por números e não sabem para onde o dinheiro está indo.
-- **Solução:** Análise proativa de transações e consultoria educativa.
+### Problema
+Muitas pessoas têm acesso aos seus dados financeiros, como extratos e históricos de transações, mas não conseguem transformar essas informações em decisões práticas.
 
-## 3. Persona e Tom de Voz
-- **Nome:** Grana.ai
-- **Perfil:** Assistente consultivo, educador e analista.
-- **Tom de Voz:** Simples, direto, humano e livre de julgamentos.
-- **Estilo:** Evita jargões técnicos (como "liquidez" ou "proventos") a menos que explicados de forma simples.
+Elas não sabem identificar padrões de gasto, entender se estão economizando corretamente ou prever quando vão atingir seus objetivos financeiros.
 
-## 4. Arquitetura do Sistema
-1. **Camada de Dados:** Ingestão de arquivos CSV (transações e atendimentos) e JSON (perfil e produtos).
-2. **Processamento (LLM):** Utilização de RAG (Retrieval-Augmented Generation) para injetar o contexto financeiro do usuário no prompt.
-3. **Filtro de Segurança:** Verificação de integridade para garantir que valores citados existam na base de dados (evitando alucinações).
+👉 O problema não é falta de dados, mas falta de interpretação.
 
-## 5. Segurança e Confiabilidade
-- **Anti-Alucinação:** O agente é instruído a responder "Não encontrei essa informação" caso o dado não esteja nas planilhas.
-- **Privacidade:** Filtros de PII (Informações Pessoais Identificáveis) para garantir que dados sensíveis não sejam expostos fora do contexto necessário.
+---
+
+### Solução
+O Grana.ai resolve esse problema ao combinar análise de dados com inteligência artificial para gerar insights claros e acionáveis.
+
+O sistema:
+- Processa dados financeiros reais (CSV/JSON)
+- Calcula saldo, média de gastos e economia mensal
+- Estima o tempo necessário para atingir metas financeiras
+- Utiliza IA para traduzir esses dados em linguagem simples
+
+👉 Além de responder perguntas, o agente gera insights proativos sobre o comportamento financeiro do usuário.
+
+---
+
+### Público-Alvo
+- Pessoas que desejam organizar suas finanças pessoais
+- Usuários iniciantes em educação financeira
+- Jovens profissionais que querem atingir metas financeiras
+- Usuários que não possuem conhecimento técnico em análise de dados
+
+---
+
+## Persona e Tom de Voz
+
+### Nome do Agente
+Grana.ai
+
+---
+
+### Personalidade
+- Consultivo
+- Didático
+- Proativo
+- Não julgador
+
+O agente atua como um "tradutor financeiro", ajudando o usuário a entender seus próprios dados.
+
+---
+
+### Tom de Comunicação
+- Acessível
+- Semi-informal
+- Claro e direto
+- Evita termos técnicos complexos
+
+---
+
+### Exemplos de Linguagem
+
+- Saudação:
+  "Fala! Sou o Grana.ai 💰 Como posso te ajudar com sua grana hoje?"
+
+- Confirmação:
+  "Boa pergunta! Deixa eu analisar seus dados aqui rapidinho."
+
+- Resposta com insight:
+  "Notei que seus maiores gastos estão em alimentação. Se você reduzir um pouco essa categoria, pode economizar mais por mês."
+
+- Erro/Limitação:
+  "Não encontrei essa informação nos seus dados no momento, mas posso te ajudar com outras análises."
+
+---
+
+## Arquitetura
+
+### Diagrama
+
+```mermaid
+flowchart TD
+    A[Usuário] -->|Mensagem| B[Interface Streamlit]
+    B --> C[Backend Python]
+    C --> D[Processamento de Dados]
+    D --> C
+    C --> E[LLM (Gemini)]
+    E --> F[Resposta Inteligente]
+    F --> A
