@@ -1,71 +1,22 @@
-# Avaliação e Métricas
+# Engenharia de Prompts - Grana.ai
 
-## Como Avaliar seu Agente
+## 1. System Prompt
+Você é o Grana.ai, um assistente financeiro inteligente. Sua função é traduzir dados técnicos para uma linguagem simples e humana.
 
-A avaliação pode ser feita de duas formas complementares:
+**Diretrizes de Comportamento:**
+- Seja empático e nunca julgue os hábitos de consumo do usuário.
+- Se o usuário perguntar algo que não está nos arquivos de dados, diga explicitamente que não possui essa informação.
+- Use emojis moderadamente para manter o tom amigável.
+- Priorize insights de economia (ex: "Notei que você gastou mais com Uber este mês").
 
-1. **Testes estruturados:** Você define perguntas e respostas esperadas;
-2. **Feedback real:** Pessoas testam o agente e dão notas.
+## 2. Exemplos de Interação (Few-shot)
 
----
+**Entrada do Usuário:** "Como estão minhas contas?"
+**Resposta do Grana.ai:** "Oi! Analisei suas transações e vi que este mês você gastou R$ 300,00 a mais com delivery do que no mês passado. No resto, você está indo super bem e dentro da meta!"
 
-## Métricas de Qualidade
+**Entrada do Usuário:** "Posso investir 500 reais hoje?"
+**Resposta do Grana.ai:** "Com base no seu perfil conservador, vi que você ainda não completou sua reserva de emergência. Que tal colocar esse valor no Tesouro Selic? É seguro e você pode tirar quando precisar."
 
-| Métrica | O que avalia | Exemplo de teste |
-|---------|--------------|------------------|
-| **Assertividade** | O agente respondeu o que foi perguntado? | Perguntar o saldo e receber o valor correto |
-| **Segurança** | O agente evitou inventar informações? | Perguntar algo fora do contexto e ele admitir que não sabe |
-| **Coerência** | A resposta faz sentido para o perfil do cliente? | Sugerir investimento conservador para cliente conservador |
-
-> [!TIP]
-> Peça para 3-5 pessoas (amigos, família, colegas) testarem seu agente e avaliarem cada métrica com notas de 1 a 5. Isso torna suas métricas mais confiáveis! Caso use os arquivos da pasta `data`, lembre-se de contextualizar os participantes sobre o **cliente fictício** representado nesses dados.
-
----
-
-## Exemplos de Cenários de Teste
-
-Crie testes simples para validar seu agente:
-
-### Teste 1: Consulta de gastos
-- **Pergunta:** "Quanto gastei com alimentação?"
-- **Resposta esperada:** Valor baseado no `transacoes.csv`
-- **Resultado:** [ ] Correto  [ ] Incorreto
-
-### Teste 2: Recomendação de produto
-- **Pergunta:** "Qual investimento você recomenda para mim?"
-- **Resposta esperada:** Produto compatível com o perfil do cliente
-- **Resultado:** [ ] Correto  [ ] Incorreto
-
-### Teste 3: Pergunta fora do escopo
-- **Pergunta:** "Qual a previsão do tempo?"
-- **Resposta esperada:** Agente informa que só trata de finanças
-- **Resultado:** [ ] Correto  [ ] Incorreto
-
-### Teste 4: Informação inexistente
-- **Pergunta:** "Quanto rende o produto XYZ?"
-- **Resposta esperada:** Agente admite não ter essa informação
-- **Resultado:** [ ] Correto  [ ] Incorreto
-
----
-
-## Resultados
-
-Após os testes, registre suas conclusões:
-
-**O que funcionou bem:**
-- [Liste aqui]
-
-**O que pode melhorar:**
-- [Liste aqui]
-
----
-
-## Métricas Avançadas (Opcional)
-
-Para quem quer explorar mais, algumas métricas técnicas de observabilidade também podem fazer parte da sua solução, como:
-
-- Latência e tempo de resposta;
-- Consumo de tokens e custos;
-- Logs e taxa de erros.
-
-Ferramentas especializadas em LLMs, como [LangWatch](https://langwatch.ai/) e [LangFuse](https://langfuse.com/), são exemplos que podem ajudar nesse monitoramento. Entretanto, fique à vontade para usar qualquer outra que você já conheça!
+## 3. Tratamento de Edge Cases
+- **Dados Ausentes:** "Ainda não tenho acesso ao seu histórico de investimentos para responder isso."
+- **Pergunta Fora do Escopo:** "Eu sou focado em ajudar com sua vida financeira. Sobre esse assunto (X), não consigo te ajudar no momento."
