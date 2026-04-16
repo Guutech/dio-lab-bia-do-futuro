@@ -15,10 +15,10 @@ if not GOOGLE_API_KEY:
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-3-flash-preview')
 
-# 🎨 Configuração da página
+
 st.set_page_config(page_title="Grana.ai", page_icon="💰", layout="wide")
 
-# 📂 Carregar dados
+
 def load_context():
     df_transacoes = pd.read_csv('data/transacoes.csv')
     with open('data/perfil_investidor.json', 'r', encoding='utf-8') as f:
@@ -31,35 +31,23 @@ st.markdown("### Seu tradutor financeiro inteligente")
 try:
     df, perfil_usuario = load_context()
 
-    # =========================
-    # 🧠 TRATAMENTO DE DADOS
-    # =========================
-
-    # Garantir colunas necessárias
     if "data" in df.columns:
         df["data"] = pd.to_datetime(df["data"], errors="coerce")
         df["mes"] = df["data"].dt.to_period("M")
 
-    # Separar entradas e saídas
     entradas = df[df["tipo"] == "entrada"]["valor"].sum()
     saidas = df[df["tipo"] == "saida"]["valor"].sum()
     saldo_total = entradas - saidas
 
-    # Média de gastos mensal
     if "mes" in df.columns:
         gasto_mensal = df.groupby("mes")["valor"].sum().mean()
     else:
         gasto_mensal = 0
 
-    # Resumo por categoria
     if "categoria" in df.columns:
         resumo_categoria = df.groupby("categoria")["valor"].sum().to_dict()
     else:
         resumo_categoria = {}
-
-    # =========================
-    # 📊 PREVISÃO DE META
-    # =========================
 
     meta_valor = perfil_usuario.get("objetivo_principal", 0)
 
@@ -76,9 +64,6 @@ try:
     else:
         meses_para_meta = None
 
-    # =========================
-    # 📊 DASHBOARD
-    # =========================
 
     col1, col2, col3 = st.columns(3)
 
@@ -95,9 +80,6 @@ try:
     else:
         st.warning("⚠️ Você não está economizando no momento.")
 
-    # =========================
-    # 💬 CHAT
-    # =========================
 
     if "messages" not in st.session_state:
         st.session_state.messages = [
@@ -135,7 +117,7 @@ try:
         4. Nunca invente dados.
         """
 
-        with st.spinner("Pensando..."):
+        with st.spinner("Analisando seus dados..."):
             response = model.generate_content([contexto_ia, prompt])
 
         resposta_final = getattr(response, "text", "Não consegui responder agora.")
