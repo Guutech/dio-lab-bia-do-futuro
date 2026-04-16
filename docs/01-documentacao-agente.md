@@ -79,10 +79,18 @@ O agente atua como um "tradutor financeiro", ajudando o usuário a entender seus
 
 ```mermaid
 flowchart TD
-    A[Usuário] -->|Mensagem| B[Interface Streamlit]
+    A[Usuário] -->|Pergunta| B[Interface Streamlit]
+
     B --> C[Backend Python]
-    C --> D[Processamento de Dados]
-    D --> C
-    C --> E[LLM (Gemini)]
-    E --> F[Resposta Inteligente]
-    F --> A
+
+    C --> D[Carregamento de Dados CSV/JSON]
+    D --> E[Processamento e Cálculos]
+    
+    E --> F[Construção do Contexto]
+
+    F --> G[LLM - Gemini]
+
+    G --> H[Resposta Interpretada]
+
+    H --> B
+    B --> A
