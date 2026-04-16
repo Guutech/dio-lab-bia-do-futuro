@@ -2,9 +2,16 @@ import streamlit as st
 import pandas as pd
 import json
 import google.generativeai as genai
+import os
+from dotenv import load_dotenv
 
-# 1. Configuração da API
-GOOGLE_API_KEY = "AIzaSyBoVeuc_BI0z0yh7Kob0qjv8lo-sAkDT9A" 
+load_dotenv()
+
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+if not GOOGLE_API_KEY:
+    raise ValueError("A API KEY não foi encontrada. Verifique o arquivo .env")
+
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-3-flash-preview')
 
@@ -22,11 +29,11 @@ st.markdown("### Seu tradutor financeiro inteligente")
 try:
     df, perfil_usuario = load_context()
 
-    # --- SEÇÃO 2: CHAT INTELIGENTE ---
+
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
-    # Exibe o histórico do chat
+
     for msg in st.session_state.messages:
         st.chat_message(msg["role"]).write(msg["content"])
 
