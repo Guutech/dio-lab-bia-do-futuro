@@ -1,14 +1,46 @@
-# Base de Conhecimento
+# 📊 Base de Conhecimento — Grana.ai
 
-O Grana.ai utiliza quatro fontes de dados principais para personalizar a experiência do usuário:
+## Dados Utilizados
 
-## 1. Estrutura de Dados
-| Arquivo | Formato | Função |
-| :--- | :--- | :--- |
-| `transacoes.csv` | CSV | Histórico de compras, categorias e datas. |
-| `perfil_investidor.json` | JSON | Nível de tolerância ao risco e objetivos (ex: reserva de emergência). |
-| `produtos_financeiros.json`| JSON | Catálogo de opções para recomendação consultiva. |
-| `historico_atendimento.csv`| CSV | Contexto de dúvidas anteriores para evitar repetições. |
+| Arquivo | Formato | Utilização no Agente |
+|---------|---------|---------------------|
+| `transacoes.csv` | CSV | Análise de entradas, saídas, saldo, média mensal e padrão de gastos |
+| `perfil_investidor.json` | JSON | Definição de perfil financeiro, metas e objetivo principal do usuário |
 
-## 2. Estratégia de Contexto
-Para garantir a precisão, os dados são processados via **Pandas** no backend e os resumos estatísticos (ex: soma de gastos por categoria) são enviados ao modelo de linguagem como contexto prioritário.
+---
+
+## Adaptações nos Dados
+
+Os dados foram estruturados para permitir análise financeira simples e eficiente.
+
+No arquivo `transacoes.csv`:
+- Inclusão de colunas como:
+  - `tipo` (entrada/saida)
+  - `valor`
+  - `categoria`
+  - `data`
+- Conversão da coluna de data para formato temporal para análise mensal
+
+No arquivo `perfil_investidor.json`:
+- Definição de:
+  - nome do usuário
+  - perfil de investidor
+  - objetivo principal (valor da meta)
+  - lista de metas financeiras
+
+---
+
+## Estratégia de Integração
+
+### Como os dados são carregados?
+
+Os dados são carregados no início da execução do sistema:
+
+- CSV é lido com Pandas
+- JSON é carregado como dicionário Python
+
+```python
+df = pd.read_csv('data/transacoes.csv')
+
+with open('data/perfil_investidor.json', 'r') as f:
+    perfil = json.load(f)

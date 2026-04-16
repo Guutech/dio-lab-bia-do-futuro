@@ -1,13 +1,78 @@
-# Pitch: Grana.ai - Seu Dinheiro, Sem Complicação
+# 🎤 Pitch — Grana.ai
 
-## 1. O Problema (30s)
-A maioria das pessoas abre o aplicativo do banco e vê uma lista confusa de nomes de empresas e valores. O resultado? Ansiedade e falta de controle. As planilhas são chatas e os chatbots atuais são apenas menus de FAQ disfarçados.
+## 1. O Problema
 
-## 2. A Solução (1min)
-Apresentamos o **Grana.ai**. Ele não é um chatbot, é um tradutor. Usando IA Generativa e RAG, ele lê suas transações e fala com você como um amigo que entende de economia. Ele não diz que seu "budget de food delivery excedeu", ele diz: "Ei, o iFood pesou no bolso essa semana, que tal cozinhar em casa amanhã?".
+Hoje, muitas pessoas até têm acesso aos seus dados financeiros — extratos, aplicativos e planilhas — mas não conseguem transformar essas informações em decisões práticas.
 
-## 3. Como Funciona (1min)
-O Grana.ai integra sua base de gastos com um modelo de linguagem treinado para ser consultivo e educador. Ele antecipa necessidades: se uma assinatura subiu de preço, ele te avisa antes de você fechar o mês.
+Elas sabem quanto gastam, mas não conseguem responder perguntas simples como:
+- Onde estou gastando mais?
+- Estou economizando o suficiente?
+- Quando vou atingir minha meta financeira?
 
-## 4. Diferencial (30s)
-Diferente dos outros, o Grana.ai é **humano, proativo e seguro**. Ele foca na clareza para quem não é técnico, transformando dados frios em liberdade financeira.
+👉 Ou seja, a informação existe, mas não vira ação.
+
+---
+
+## 2. A Solução
+
+O Grana.ai é um assistente financeiro inteligente que transforma dados financeiros em insights claros, personalizados e acionáveis.
+
+Ele combina:
+- Análise de dados real (Python)
+- Com interpretação inteligente usando IA
+
+Na prática, o sistema:
+- Calcula saldo e comportamento financeiro
+- Identifica padrões de gastos
+- Prevê em quanto tempo o usuário atinge sua meta
+- E explica tudo de forma simples, como um “tradutor financeiro”
+
+👉 Não é apenas um chatbot, mas um assistente de decisão financeira.
+
+---
+
+## 3. Demonstração
+
+Na demonstração, será mostrado:
+
+1. Dashboard com:
+   - Saldo atual
+   - Média mensal
+   - Previsão de meta
+
+2. Interação no chat:
+   Pergunta:  
+   "Quando vou atingir minha meta?"
+
+3. Resposta do sistema:
+   - Utiliza dados reais do usuário
+   - Apresenta a previsão calculada
+   - Gera um insight prático, como:
+     "Se você reduzir gastos em alimentação, pode antecipar esse prazo."
+
+👉 Isso demonstra que o sistema não apenas responde, mas analisa e orienta.
+
+---
+
+## 4. Diferencial e Impacto
+
+O principal diferencial do Grana.ai é que ele não depende apenas da IA.
+
+- Os cálculos são feitos no backend com dados reais
+- A IA atua como camada de interpretação
+
+Isso garante:
+- Maior precisão
+- Mais confiabilidade
+- Melhor experiência para o usuário
+
+Impacto:
+- Ajuda pessoas a entender sua vida financeira
+- Apoia decisões mais conscientes
+- Facilita o alcance de metas financeiras
+
+👉 Em resumo: transforma dados em decisões.
+
+---
+
+"O Grana.ai não apenas mostra números ele ajuda o usuário a entender o que fazer com eles."
